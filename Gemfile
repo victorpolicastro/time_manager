@@ -27,16 +27,34 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Bootstrap 4 rubygem for Rails / Sprockets / Hanami / etc
+gem 'bootstrap'
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails'
+# Rack-based asset packaging system
+gem 'sprockets'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker'
+  # Factory Bot s2 Rails
+  gem 'factory_bot_rails'
+  # RSpec for Rails  5+
+  gem 'rspec-rails'
+  # A Ruby static code analyzer and formatter, based on the community Ruby style guide.
+  gem 'rubocop'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  # Simple one-liner tests for common Rails functionality
+  gem 'shoulda-matchers'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

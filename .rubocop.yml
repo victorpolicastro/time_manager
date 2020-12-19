@@ -1,0 +1,15 @@
+AllCops:
+  TargetRubyVersion: 2.7.2
+  NewCops: enable
+  Exclude:
+    - bin/**
+    - db/**/*
+    - config/**/*
+    - node_modules/**/*
+    - Rakefile
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
