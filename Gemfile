@@ -56,8 +56,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # The Listen gem listens to file modifications and notifies you about the changes
   gem 'listen', '~> 3.2'
-  # Simple one-liner tests for common Rails functionality
-  gem 'shoulda-matchers'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -66,6 +64,8 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  # Simple one-liner tests for common Rails functionality
+  gem 'shoulda-matchers'
   # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov', require: false
   # WebDriver is a tool for writing automated tests of websites. It aims to mimic the behaviour of a real user, and as
