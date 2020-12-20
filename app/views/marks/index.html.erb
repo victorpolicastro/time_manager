@@ -1,0 +1,32 @@
+<h1>Marks</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        date
+      </th>
+      <th>
+        time
+      </th>
+      <th>
+        kind
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @marks.each do |mark| %>
+      <tr>
+        <td>
+          <%= mark.date.strftime('%d/%m/%Y') %>
+        </td>
+        <td>
+          <%= mark.time.strftime('%H:%M') %>
+        </td>
+        <td>
+          <%= mark.kind.titleize %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

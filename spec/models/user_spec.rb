@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { build(:user) }
-
   context 'validations' do
     it 'validates presence of fields' do
       %i[email first_name last_name password].each do |field|
@@ -18,8 +16,6 @@ RSpec.describe User, type: :model do
   end
 
   context 'when valid' do
-    it 'successfully creates an user' do
-      expect(user).to be_valid
-    end
+    it { expect(build(:user)).to be_valid }
   end
 end
