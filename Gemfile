@@ -33,6 +33,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# the font-awesome font bundled as an asset for the rails asset pipeline
+gem 'font-awesome-rails'
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
 # Rack-based asset packaging system
