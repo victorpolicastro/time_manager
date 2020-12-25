@@ -1,36 +1,41 @@
 # frozen_string_literal: true
 
 class MarksController < ApplicationController
-  before_action :set_mark, only: %i[show edit update destroy]
+  before_action :set_mark, only: %i[]
 
   def index
-    @marks = current_user.marks
+    @marks = current_user.marks.order(id: :desc)
   end
-
-  def show; end
 
   def new
-    @mark = current_user.marks.new
+    time_current = Time.zone.now
+    @mark = current_user.marks.new(date: time_current.to_date, datetime: time_current, kind: kind )
   end
-
-  def edit; end
 
   def create
-    MarkCreatorService.new(current_user, Time.current).call
-    redirect_to marks_url, notice: 'Mark successfully created.'
+    @
   end
 
-  def update; end
+  def mark_time
+    @mark = build_mark
 
-  def destroy; end
+    if @mark.save
+      redirect_to marks_path, notice: 'Mark was successfully created.'
+    else
+      render :new
+    end
+  end
 
   private
 
-  def set_mark
-    @mark = current_user.marks.find(params[:id])
+  def build_mark
+    datetime = Time.zone.now
+    current_user.marks.new(date: datetime, datetime: datetime, kind: kind)
   end
 
-  def mark_params
-    params.require(:mark).permit(:marked_at)
+  def kind
+    last_mark = current_user.marks.last
+    return :entrance if last_mark.blank?
+    last_mark.entrance? ? :exit : :entrance
   end
 end

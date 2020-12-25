@@ -1,0 +1,14 @@
+<%= form_for(mark) do |f| %>
+  <div>
+    <b>Date:</b> <%= mark.date.strftime('%d/%m/%Y') %>
+  </div>
+  <div>
+    <b>Time:</b> <%= mark.datetime.strftime('%Hh%M') %>
+  </div>
+  <div>
+    <b>Kind:</b> <%= mark.kind.titleize %>
+  </div>
+  <div class="actions mt-5 text-center">
+    <%= f.button fa_icon("check", text: "Mark time"), class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

@@ -3,7 +3,7 @@
 class Mark < ApplicationRecord
   belongs_to :user
 
-  validates :date, :time, :kind, presence: true
+  validates :date, :datetime, :kind, presence: true
 
   enum kind: { entrance: 'entrance', exit: 'exit' }
 end

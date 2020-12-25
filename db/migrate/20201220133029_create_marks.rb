@@ -3,7 +3,7 @@ class CreateMarks < ActiveRecord::Migration[6.0]
     create_table :marks do |t|
       t.references :user, null: false, foreign_key: true
       t.date :date
-      t.time :time
+      t.timestamp :datetime
       t.string :kind
 
       t.timestamps

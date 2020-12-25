@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_133029) do
   create_table "marks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "date"
-    t.time "time"
+    t.timestamp "datetime"
     t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
