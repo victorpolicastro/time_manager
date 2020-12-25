@@ -1,14 +1,22 @@
-<%= form_for(mark) do |f| %>
+<%= form_for(mark) do |form| %>
+  <div class="d-none">
+    <%= form.date_field :date, placeholder: :date, class: "form-control", presence: true %>
+    <%= form.time_field :time, placeholder: :time, class: "form-control", presence: true %>
+    <%= form.text_field :kind, placeholder: :kind, class: "form-control", presence: true %>
+  </div>
+
   <div>
-    <b>Date:</b> <%= mark.date.strftime('%d/%m/%Y') %>
+    <b>Date:</b> <%= @mark.date.strftime('%d/%m/%Y') %>
   </div>
   <div>
-    <b>Time:</b> <%= mark.datetime.strftime('%Hh%M') %>
+    <b>Time:</b> <%= @mark.time.strftime('%Hh%M') %>
   </div>
   <div>
-    <b>Kind:</b> <%= mark.kind.titleize %>
+    <b>Kind:</b> <%= @mark.kind %>
   </div>
+
+
   <div class="actions mt-5 text-center">
-    <%= f.button fa_icon("check", text: "Mark time"), class: "btn btn-success btn-lg" %>
+    <%= form.submit fa_icon("check", text: "Mark time"), class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

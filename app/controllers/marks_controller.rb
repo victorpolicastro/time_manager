@@ -1,26 +1,21 @@
 # frozen_string_literal: true
 
 class MarksController < ApplicationController
-  before_action :set_mark, only: %i[]
-
   def index
-    @marks = current_user.marks.order(id: :desc)
+    @marks = current_user.marks.group(:date, :time).order(id: :desc)
+    byebug
   end
 
   def new
     time_current = Time.zone.now
-    @mark = current_user.marks.new(date: time_current.to_date, datetime: time_current, kind: kind )
+    @mark = current_user.marks.new(date: time_current.to_date, time: time_current, kind: kind)
   end
 
   def create
-    @
-  end
-
-  def mark_time
-    @mark = build_mark
+    @mark = current_user.marks.new(mark_params)
 
     if @mark.save
-      redirect_to marks_path, notice: 'Mark was successfully created.'
+      redirect_to marks_path, notice: 'Mark successfully created.'
     else
       render :new
     end
@@ -28,14 +23,14 @@ class MarksController < ApplicationController
 
   private
 
-  def build_mark
-    datetime = Time.zone.now
-    current_user.marks.new(date: datetime, datetime: datetime, kind: kind)
+  def kind
+    last_mark = current_user.marks.where(date: Time.zone.now.to_date).last
+    return :entrance if last_mark.blank?
+
+    last_mark.entrance? ? :exit : :entrance
   end
 
-  def kind
-    last_mark = current_user.marks.last
-    return :entrance if last_mark.blank?
-    last_mark.entrance? ? :exit : :entrance
+  def mark_params
+    params.require(:mark).permit(:date, :time, :kind)
   end
 end

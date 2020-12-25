@@ -14,9 +14,6 @@
         <th class="text-center">
           Time
         </th>
-        <th class="text-center">
-          Kind
-        </th>
       </tr>
     </thead>
     <tbody>
@@ -26,10 +23,7 @@
             <%= mark.date.strftime('%d/%m/%Y') %>
           </td>
           <td>
-            <%= mark.datetime.strftime('%H:%M') %>
-          </td>
-          <td>
-            <%= mark.kind.titleize %>
+            <%= mark.time.strftime('%H:%M') %>
           </td>
         </tr>
       <% end %>
