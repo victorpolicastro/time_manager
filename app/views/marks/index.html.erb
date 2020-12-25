@@ -12,18 +12,38 @@
           Date
         </th>
         <th class="text-center">
-          Time
+          E1
+        </th>
+        <th class="text-center">
+          S1
+        </th>
+        <th class="text-center">
+          E2
+        </th>
+        <th class="text-center">
+          S2
+        </th>
+        <th>
+          Total
         </th>
       </tr>
     </thead>
     <tbody>
-      <% @marks.each do |mark| %>
+      <% @marks.pluck(:date).uniq.each do |date| %>
         <tr>
           <td>
-            <%= mark.date.strftime('%d/%m/%Y') %>
+            <%= date.strftime('%d/%m/%Y') %>
           </td>
+          <% @marks.where(date: date).each do |mark| %>
+            <td>
+              <%= mark.time.strftime('%H:%M') %>
+            </td>
+          <% end %>
           <td>
-            <%= mark.time.strftime('%H:%M') %>
+            <% times = @marks.where(date: date).pluck(:time) %>
+            <% t1 = (times[1] - times[0]) / 1.hour %>
+            <% t2 = (times[3] - times[2]) / 1.hour %>
+            <%= t1 + t2 %>
           </td>
         </tr>
       <% end %>

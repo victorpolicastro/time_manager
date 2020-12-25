@@ -2,8 +2,7 @@
 
 class MarksController < ApplicationController
   def index
-    @marks = current_user.marks.group(:date, :time).order(id: :desc)
-    byebug
+    @marks = current_user.marks.group(:date, :time)
   end
 
   def new
