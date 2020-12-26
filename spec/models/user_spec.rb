@@ -3,7 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { build(:user) }
+  context 'associations' do
+    it { is_expected.to have_many(:marks) }
+  end
 
   context 'validations' do
     it 'validates presence of fields' do
@@ -18,8 +20,6 @@ RSpec.describe User, type: :model do
   end
 
   context 'when valid' do
-    it 'successfully creates an user' do
-      expect(user).to be_valid
-    end
+    it { expect(build(:user)).to be_valid }
   end
 end

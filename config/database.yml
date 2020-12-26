@@ -16,6 +16,8 @@ default: &default
   username: rails
   password: rails
   socket: /var/run/mysqld/mysqld.sock
+  variables:
+    sql_mode: TRADITIONAL
 
 development:
   <<: *default

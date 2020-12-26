@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: "marks#index"
+  resources :marks do
+    collection do
+      post :mark_time
+    end
+  end
 end
