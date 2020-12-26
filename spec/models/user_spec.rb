@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  context 'associations' do
+    it { is_expected.to have_many(:marks) }
+  end
+
   context 'validations' do
     it 'validates presence of fields' do
       %i[email first_name last_name password].each do |field|

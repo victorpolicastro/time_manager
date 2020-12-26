@@ -1,0 +1,8 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Time manager</a>
+    <div class="d-flex">
+      <%= link_to fa_icon("sign_out", text: "Sign out"), destroy_user_session_path, method: :delete, class: 'text-decoration-none' %>
+    </div>
+  </div>
+</nav>

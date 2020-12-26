@@ -3,6 +3,8 @@
 FactoryBot.define do
   factory :mark do
     user
-    marked_at { Time.current }
+    date { Date.current }
+    time { Time.current }
+    kind { :entrance }
   end
 end

@@ -1,52 +1,42 @@
 <h1>Marks</h1>
 
 <div class="float-right mb-5">
-  <%= link_to fa_icon("plus", text: "New mark"), new_mark_path, class: 'btn btn-success btn-lg' %>
+  <%= link_to fa_icon("plus", text: "New mark"), new_mark_path, class: 'btn btn-primary btn-lg' %>
 </div>
 
 <div class="table-responsive">
-  <table class="table table-dark table-striped">
+  <table class="table table-striped">
     <thead>
-      <tr>
+      <tr >
         <th class="text-center">
           Date
         </th>
         <th class="text-center">
-          E1
+          Time
         </th>
         <th class="text-center">
-          S1
-        </th>
-        <th class="text-center">
-          E2
-        </th>
-        <th class="text-center">
-          S2
-        </th>
-        <th>
-          Total
+          Kind
         </th>
       </tr>
     </thead>
     <tbody>
-      <% @marks.pluck(:date).uniq.each do |date| %>
+      <% @marks.each do |mark| %>
         <tr>
-          <td>
-            <%= date.strftime('%d/%m/%Y') %>
+          <td class="text-center">
+            <%= mark.date.strftime('%d/%m/%Y') %>
           </td>
-          <% @marks.where(date: date).each do |mark| %>
-            <td>
-              <%= mark.time.strftime('%H:%M') %>
-            </td>
-          <% end %>
-          <td>
-            <% times = @marks.where(date: date).pluck(:time) %>
-            <% t1 = (times[1] - times[0]) / 1.hour %>
-            <% t2 = (times[3] - times[2]) / 1.hour %>
-            <%= t1 + t2 %>
+          <td class="text-center">
+            <%= mark.time.strftime('%H:%M')%>
+          </td>
+          <td class="text-center">
+            <%= mark.kind.titleize%>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <%= paginate @marks %>
 </div>

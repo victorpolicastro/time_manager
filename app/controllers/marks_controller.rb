@@ -2,7 +2,7 @@
 
 class MarksController < ApplicationController
   def index
-    @marks = current_user.marks.group(:date, :time)
+    @marks = current_user.marks.order(id: :desc).page(params[:page])
   end
 
   def new

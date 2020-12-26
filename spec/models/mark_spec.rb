@@ -8,7 +8,9 @@ RSpec.describe Mark do
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:marked_at) }
+    it { is_expected.to validate_presence_of(:date) }
+    it { is_expected.to validate_presence_of(:time) }
+    it { is_expected.to validate_presence_of(:kind) }
   end
 
   context 'when valid' do
