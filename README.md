@@ -13,11 +13,10 @@ Time Manager is a webapp to manage employee's work time
   `GRANT ALL PRIVILEGES ON time_manager_development.* TO 'rails'@'localhost';`
   `GRANT ALL PRIVILEGES ON time_manager_test.* TO 'rails'@'localhost';`
   `\q`
-4. Run command to setup database
+4. Run the following command to setup database with seed
   `rails db:setup`
 5. Start the server
   `bin/rails s`
-
 
 # Linter
 To see linter offenses, run:
@@ -26,3 +25,10 @@ To see linter offenses, run:
 # Tests
 To run all project tests, run:
   `rspec`
+
+# Next steps
+1. View: marks per day
+2. Hour calulation
+3. Extract marks to spreadsheet
+4. Edit user
+5. Create specs for 100% of coverage
