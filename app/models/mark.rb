@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Mark < ApplicationRecord
-  paginates_per 5
+  paginates_per 124
 
   belongs_to :user
 
