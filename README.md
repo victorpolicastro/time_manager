@@ -27,8 +27,8 @@ To run all project tests, run:
   `rspec`
 
 # Next steps
-1. View: marks per day
-2. Hour calulation
-3. Extract marks to spreadsheet
-4. Edit user
-5. Create specs for 100% of coverage
+1. Hour calulation
+2. Extract marks to spreadsheet
+3. Edit user
+4. Create specs for 100% of coverage
+5. Add filter for month
