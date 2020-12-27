@@ -7,36 +7,51 @@
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
-      <tr >
+      <tr>
         <th class="text-center">
           Date
         </th>
         <th class="text-center">
-          Time
+          Day of week
         </th>
         <th class="text-center">
-          Kind
+          E1
+        </th>
+        <th class="text-center">
+          S1
+        </th>
+        <th class="text-center">
+          E2
+        </th>
+        <th class="text-center">
+          S2
         </th>
       </tr>
     </thead>
     <tbody>
-      <% @marks.each do |mark| %>
+      <% dates = '2020-01-01'.to_date..'2020-12-31'.to_date%>
+      <% dates.each do |date| %>
         <tr>
           <td class="text-center">
-            <%= mark.date.strftime('%d/%m/%Y') %>
+            <%= date.strftime('%d/%m/%Y') %>
           </td>
           <td class="text-center">
-            <%= mark.time.strftime('%H:%M')%>
+            <%= date.strftime('%A') %>
           </td>
           <td class="text-center">
-            <%= mark.kind.titleize%>
+            <%= @marks.entrance.where(date: date).first&.time&.strftime("%Hh%M") %>
+          </td>
+          <td class="text-center">
+            <%= @marks.exit.where(date: date).first&.time&.strftime("%Hh%M") %>
+          </td>
+          <td class="text-center">
+            <%= @marks.entrance.where(date: date).last&.time&.strftime("%Hh%M") %>
+          </td>
+          <td class="text-center">
+            <%= @marks.exit.where(date: date).last&.time&.strftime("%Hh%M") %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
-
-<div class="d-flex justify-content-center mt-3">
-  <%= paginate @marks %>
 </div>
