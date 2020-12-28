@@ -9,19 +9,19 @@
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
-      <tr>
-        <th class="text-center">
+      <tr class="text-center">
+        <th>
           Date
         </th>
-        <th class="text-center">
+        <th>
           Day of week
         </th>
         <% 2.times do |time| %>
           <% display = time + 1 %>
-          <th class="text-center">
+          <th>
             E<%= display %>
           </th>
-          <th class="text-center">
+          <th>
             S<%= display %>
           </th>
         <% end %>
@@ -29,23 +29,23 @@
     </thead>
     <tbody>
       <% @dates.reverse_each do |date| %>
-        <tr>
-          <td class="text-center">
+        <tr class="text-center">
+          <td>
             <%= date.strftime('%d/%m/%Y') %>
           </td>
-          <td class="text-center">
+          <td>
             <%= date.strftime('%A') %>
           </td>
-          <td class="text-center">
+          <td>
             <%= @marks.entrance.where(date: date).first&.time&.strftime("%Hh%M") %>
           </td>
-          <td class="text-center">
+          <td>
             <%= @marks.exit.where(date: date).first&.time&.strftime("%Hh%M") %>
           </td>
-          <td class="text-center">
+          <td>
             <%= @marks.entrance.where(date: date).last&.time&.strftime("%Hh%M") %>
           </td>
-          <td class="text-center">
+          <td>
             <%= @marks.exit.where(date: date).last&.time&.strftime("%Hh%M") %>
           </td>
         </tr>
