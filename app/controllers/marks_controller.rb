@@ -2,7 +2,9 @@
 
 class MarksController < ApplicationController
   def index
-    @marks = current_user.marks.order(id: :desc).page(params[:page])
+    @q = current_user.marks.ransack(params[:q])
+    @marks = @q.result.order(id: :asc)
+    @dates = @marks.first.date..@marks.last.date
   end
 
   def new

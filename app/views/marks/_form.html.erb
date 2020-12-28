@@ -5,13 +5,15 @@
     <%= form.text_field :kind, placeholder: :kind, class: "form-control", presence: true %>
   </div>
 
-  <p class="mb-0"><b>Date:</b> <%= @mark.date.strftime('%d/%m/%Y') %></p>
-  <p class="mb-0"><b>Time:</b> <%= @mark.time.strftime('%Hh%M') %></p>
-  <p><b>Kind:</b> <%= @mark.kind %></p>
+  <div class="text-center">
+    <p class="mb-0"><b>Date:</b> <%= @mark.date.strftime('%d/%m/%Y') %></p>
+    <p class="mb-0"><b>Time:</b> <%= @mark.time.strftime('%Hh%M') %></p>
+    <p><b>Kind:</b> <%= @mark.kind.titleize %></p>
+  </div>
 
 
   <div class="actions mt-5 text-center">
-    <%= button_tag(class:  "btn btn-success btn-lg") do %>
+    <%= button_tag(class:  "btn btn-primary btn-lg") do %>
       <%= fa_icon("check", text: "Mark time") %>
     <% end %>
   </div>

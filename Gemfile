@@ -31,16 +31,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Bootstrap 4 rubygem for Rails / Sprockets / Hanami / etc
 gem 'bootstrap'
-# Gem - Bootstrap 4 styling for Kaminari gem
-gem 'bootstrap4-kaminari-views'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 # the font-awesome font bundled as an asset for the rails asset pipeline
 gem 'font-awesome-rails'
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
-# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
-gem 'kaminari'
+# Object-based searching
+gem 'ransack'
 # Rack-based asset packaging system
 gem 'sprockets'
 
