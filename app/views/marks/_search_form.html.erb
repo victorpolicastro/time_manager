@@ -1,0 +1,15 @@
+<%= search_form_for @q do |f| %>
+  <div class="row">
+    <b class="mt-1">Date between</b>
+    <div class="col-3">
+      <%= f.search_field :date_gteq, class: 'form-control input-sm', placeholder: "Date greater equal to", type: "date" %>
+    </div>
+    <div class="col-3">
+      <%= f.search_field :date_lteq, class: 'form-control input-sm', placeholder: "Date lower equal to", type: "date" %>
+    </div>
+    <%= button_tag(class:  "btn btn-primary") do %>
+      <%= fa_icon("search", text: "Search") %>
+    <% end %>
+  </div>
+<% end %>
+

@@ -4,6 +4,8 @@
   <%= link_to fa_icon("plus", text: "New mark"), new_mark_path, class: 'btn btn-primary btn-lg' %>
 </div>
 
+<%= render 'search_form' %>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -29,8 +31,7 @@
       </tr>
     </thead>
     <tbody>
-      <% dates = '2020-01-01'.to_date..'2020-12-31'.to_date%>
-      <% dates.each do |date| %>
+      <% @dates.reverse_each do |date| %>
         <tr>
           <td class="text-center">
             <%= date.strftime('%d/%m/%Y') %>
