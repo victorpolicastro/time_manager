@@ -16,18 +16,15 @@
         <th class="text-center">
           Day of week
         </th>
-        <th class="text-center">
-          E1
-        </th>
-        <th class="text-center">
-          S1
-        </th>
-        <th class="text-center">
-          E2
-        </th>
-        <th class="text-center">
-          S2
-        </th>
+        <% 2.times do |time| %>
+          <% display = time + 1 %>
+          <th class="text-center">
+            E<%= display %>
+          </th>
+          <th class="text-center">
+            S<%= display %>
+          </th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
