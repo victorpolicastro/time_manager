@@ -2,8 +2,10 @@
 
 require 'rails_helper'
 
+# rubocop:disable Metric/BlockLength
 RSpec.describe MarksController do
   let!(:user) { create(:user) }
+  let!(:mark) { create(:mark, user: user) }
 
   before { sign_in user }
 
@@ -32,7 +34,8 @@ RSpec.describe MarksController do
       }
 
       expect(response).to have_http_status(:found)
-      expect(Mark.count).to eq(1)
+      expect(Mark.count).to eq(2)
     end
   end
 end
+# rubocop:enable Metric/BlockLength

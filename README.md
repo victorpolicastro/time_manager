@@ -31,4 +31,3 @@ To run all project tests, run:
 2. Extract marks to spreadsheet
 3. Edit user
 4. Create specs for 100% of coverage
-5. Add filter for month
